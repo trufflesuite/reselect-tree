@@ -1,6 +1,8 @@
 reselect-tree
 =============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/trufflesuite/reselect-tree.svg)](https://greenkeeper.io/)
+
 Wrapper around reactjs's [reselect](https://github.com/reactjs/reselect)
 library for creating trees of selectors.
 
