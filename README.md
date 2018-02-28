@@ -4,6 +4,8 @@ reselect-tree
 Wrapper around reactjs's [reselect](https://github.com/reactjs/reselect)
 library for creating trees of selectors.
 
+Designed to allow selectors to be organized into separate namespaces easily,
+with the ability to identify dependencies between selectors in the tree.
 
 Usage Example
 =============
@@ -19,6 +21,10 @@ Then define a file `selectors.js`:
 
 ```javascript
 import { createSelectorTree, createLeaf } from "reselect-tree";
+
+const selectors = require("./dist/reselect-tree.js");
+const createSelectorTree = selectors.createSelectorTree;
+const createLeaf = selectors.createLeaf;
 
 const select = createSelectorTree({
   shop: {
@@ -61,4 +67,16 @@ let exampleState = {
 console.log(select.cart.subtotal(exampleState)) // 2.15
 console.log(select.cart.tax(exampleState))      // 0.172
 console.log(select.cart.total(exampleState))    // { total: 2.322 }
+```
+
+You can also select non-leaf nodes, for structured representations:
+
+```javascript
+console.log(select.cart(exampleState))
+{ items:
+   [ { name: 'apple', value: 1.2 },
+     { name: 'orange', value: 0.95 } ],
+  subtotal: 2.15,
+  tax: 0.172,
+  total: { total: 2.322 } }
 ```
