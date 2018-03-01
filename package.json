@@ -2,7 +2,7 @@
   "name": "reselect-tree",
   "version": "1.0.0",
   "description": "Wrapper around reselect for creating selector trees",
-  "main": "dist/reselect-tree.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "webpack --config webpack/webpack.config.js",
     "start": "node ./webpack/dev-server.js",
@@ -27,7 +27,8 @@
     "debug": "^3.1.0",
     "esdoc": "^1.0.4",
     "json-pointer": "^0.6.0",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "source-map-support": "^0.5.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

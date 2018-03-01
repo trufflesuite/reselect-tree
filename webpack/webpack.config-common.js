@@ -3,7 +3,9 @@ const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  entry: "./index",
+  entry: {
+    "index": "./lib/index.js"
+  },
 
   module: {
     rules: [{
@@ -26,7 +28,7 @@ module.exports = {
     libraryTarget: "umd",
     umdNamedDefine: true,
 
-    filename: "reselect-tree.js",
+    filename: "[name].js",
     path: path.join(__dirname, "..", "dist"),
     devtoolModuleFilenameTemplate: '[absolute-resource-path]',
     devtoolFallbackModuleFilenameTemplate: '[absolute-resource-path]?[hash]'
