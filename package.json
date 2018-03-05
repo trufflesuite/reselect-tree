@@ -2,8 +2,9 @@
   "name": "reselect-tree",
   "version": "1.0.0",
   "description": "Wrapper around reselect for creating selector trees",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
+    "prepublish": "npm run build",
     "build": "webpack --config webpack/webpack.config.js",
     "start": "node ./webpack/dev-server.js",
     "test": "mocha-webpack --webpack-config webpack/webpack.config-test.js --recursive",
