@@ -4,7 +4,8 @@ const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   entry: {
-    "index": "./lib/index.js"
+    "index": "./lib/index.js",
+    "esdoc-plugin": "./lib/esdoc-plugin/index.js"
   },
 
   module: {
@@ -29,7 +30,7 @@ module.exports = {
     umdNamedDefine: true,
 
     filename: "[name].js",
-    path: path.join(__dirname, "..", "dist"),
+    path: path.join(__dirname, ".."),
     devtoolModuleFilenameTemplate: '[absolute-resource-path]',
     devtoolFallbackModuleFilenameTemplate: '[absolute-resource-path]?[hash]'
   },
