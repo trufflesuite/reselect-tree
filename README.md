@@ -80,3 +80,55 @@ console.log(select.cart(exampleState))
   tax: 0.172,
   total: { total: 2.322 } }
 ```
+
+Override Root Selectors
+-----------------------
+
+You can override the default aggregation behavior by defining a custom child
+`_`. e.g.:
+
+```javascript
+const select = createSelectorTree({
+  shop: {
+    taxPercent: state => state.shop.taxPercent
+  },
+  cart: {
+    _: createLeaf(
+      ['./items', './total'],
+
+      (items, total) => ({ items, total })
+    ),
+
+    items: state => state.cart.items,
+
+    subtotal: createLeaf(
+      ['./items'],
+
+      (items) => items.reduce((acc, item) => acc + item.value, 0)
+    ),
+
+    tax: createLeaf(
+      ['/shop/taxPercent', './subtotal'],
+
+      (taxPercent, subtotal) => subtotal * (taxPercent / 100)
+    ),
+
+    total: createLeaf(
+      ['./subtotal', './tax'], (subtotal, tax) => ({ total: subtotal + tax })
+    )
+  }
+});
+```
+
+This changes how `select.cart` behaves, instead acting as `select.cart._`:
+
+```javascript
+console.log(select.cart(exampleState));   // { items:
+                                          //    [ { name: 'apple', value: 1.2 },
+                                          //      { name: 'orange', value: 0.95 } ],
+                                          //    total: { total: 2.322 } }
+console.log(select.cart._(exampleState)); // { items:
+                                          //    [ { name: 'apple', value: 1.2 },
+                                          //      { name: 'orange', value: 0.95 } ],
+                                          //    total: { total: 2.322 } }
+```
