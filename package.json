@@ -7,8 +7,8 @@
     "index.js"
   ],
   "scripts": {
-    "prepare": "yarn build",
-    "build": "webpack --config webpack/webpack.config.js",
+    "prepare": "npm run-script build",
+    "build": " node ./node_modules/webpack/bin/webpack.js --config webpack/webpack.config.js",
     "start": "node ./webpack/dev-server.js",
     "test": "mocha-webpack --webpack-config webpack/webpack.config-test.js --recursive",
     "test:debug": "node --inspect ./node_modules/.bin/mocha-webpack --webpack-config webpack/webpack.config-test.js"
