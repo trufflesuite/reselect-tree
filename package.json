@@ -4,7 +4,7 @@
   "description": "Wrapper around reselect for creating selector trees",
   "main": "index.js",
   "files": [
-    "esdoc-plugin.js"
+    "index.js"
   ],
   "scripts": {
     "prepare": "yarn build",
@@ -29,7 +29,6 @@
   "homepage": "https://github.com/trufflesuite/reselect-tree#readme",
   "dependencies": {
     "debug": "^3.1.0",
-    "esdoc": "^1.0.4",
     "json-pointer": "^0.6.1",
     "reselect": "^4.0.0",
     "source-map-support": "^0.5.3"
