@@ -4,11 +4,11 @@
   "description": "Wrapper around reselect for creating selector trees",
   "main": "index.js",
   "files": [
-    "esdoc-plugin.js"
+    "index.js"
   ],
   "scripts": {
-    "prepare": "yarn build",
-    "build": "webpack --config webpack/webpack.config.js",
+    "prepare": "npm run-script build",
+    "build": " node ./node_modules/webpack/bin/webpack.js --config webpack/webpack.config.js",
     "start": "node ./webpack/dev-server.js",
     "test": "mocha-webpack --webpack-config webpack/webpack.config-test.js --recursive",
     "test:debug": "node --inspect ./node_modules/.bin/mocha-webpack --webpack-config webpack/webpack.config-test.js"
@@ -29,7 +29,6 @@
   "homepage": "https://github.com/trufflesuite/reselect-tree#readme",
   "dependencies": {
     "debug": "^3.1.0",
-    "esdoc": "^1.0.4",
     "json-pointer": "^0.6.1",
     "reselect": "^4.0.0",
     "source-map-support": "^0.5.3"

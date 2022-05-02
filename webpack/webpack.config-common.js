@@ -5,7 +5,6 @@ const nodeExternals = require('webpack-node-externals');
 module.exports = {
   entry: {
     "index": "./lib/index.js",
-    "esdoc-plugin": "./lib/esdoc-plugin/index.js"
   },
 
   module: {
